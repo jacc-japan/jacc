@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveler's Dashboard</title>
+    <style>
+        :root {
+            --bg: #1a1a1a; /* 高級感のあるダークグレー */
+            --card-bg: #2a2a2a;
+            --text: #ffffff;
+            --sub-text: #aaaaaa;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        h1 { font-size: 1.4rem; margin-bottom: 5px; letter-spacing: 1px; }
+        .subtitle { font-size: 0.8rem; color: var(--sub-text); margin-bottom: 30px; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            border: 1px solid #333;
+        }
+        /* タップ時のフィードバック */
+        .card:active {
+            transform: scale(0.95);
+            background: #333;
+        }
+        .card img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .card span {
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        .footer {
+            margin-top: auto;
+            padding-top: 40px;
+            font-size: 0.7rem;
+            color: var(--sub-text);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Global Travel Authorities</h1>
+    <p class="subtitle">Essential Links for Your Journey</p>
+
+    <div class="grid">
+        <a href="https://www.google.com/maps" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=maps.google.com" alt="Maps">
+            <span>Maps</span>
+        </a>
+        <a href="https://translate.google.com" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=translate.google.com" alt="Translate">
+            <span>Translate</span>
+        </a>
+
+        <a href="https://www.accuweather.com" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=accuweather.com" alt="Weather">
+            <span>Weather</span>
+        </a>
+        <a href="https://www.xe.com/currencyconverter/" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=xe.com" alt="Currency">
+            <span>Currency</span>
+        </a>
+
+        <a href="https://www.tripadvisor.com" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=tripadvisor.com" alt="Tripadvisor">
+            <span>Tripadvisor</span>
+        </a>
+        <a href="https://www.lonelyplanet.com" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=lonelyplanet.com" alt="Lonely Planet">
+            <span>Lonely Planet</span>
+        </a>
+        <a href="https://www.fodors.com" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=fodors.com" alt="Fodor's">
+            <span>Fodor's</span>
+        </a>
+        <a href="https://www.roughguides.com" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=roughguides.com" alt="Rough Guides">
+            <span>Rough Guides</span>
+        </a>
+
+        <a href="https://japantravel.navitime.com/en/area/jp/route/" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=navitime.co.jp" alt="Transit">
+            <span>Transit</span>
+        </a>
+        <a href="https://www.jnto.go.jp/safety-tips/eng/" class="card">
+            <img src="https://www.google.com/s2/favicons?sz=64&domain=jnto.go.jp" alt="Safety Info">
+            <span>Safety Info</span>
+        </a>
+    </div>
+
+    <div class="footer">© SUNCRAFT Traveler's Card Project</div>
+
+</body>
+</html>
