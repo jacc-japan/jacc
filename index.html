@@ -2,125 +2,198 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traveler's Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <title>JACC Traveler's Dashboard</title>
     <style>
-        :root {
-            --bg: #1a1a1a; /* 高級感のあるダークグレー */
-            --card-bg: #2a2a2a;
-            --text: #ffffff;
-            --sub-text: #aaaaaa;
-        }
+        /* ベースのダークテーマ設定 */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: #121212;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
+            padding: 20px 16px 60px 16px; /* 下部に余白を確保 */
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            padding: 40px 20px;
+            /* スクロール時のバウンスを防止 */
+            overscroll-behavior-y: none;
         }
-        h1 { font-size: 1.4rem; margin-bottom: 5px; letter-spacing: 1px; }
-        .subtitle { font-size: 0.8rem; color: var(--sub-text); margin-bottom: 30px; }
-        
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            margin-top: 20px;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .header p {
+            font-size: 13px;
+            color: #888;
+            margin: 0;
+        }
+
+        /* セクション見出しのスタイル（高級感のあるグレー） */
+        .section-header {
+            width: 100%;
+            max-width: 400px;
+            margin: 28px 0 12px 0;
+            font-size: 11px;
+            font-weight: 700;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 6px;
+        }
+
+        /* グリッドレイアウト */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 16px;
             width: 100%;
             max-width: 400px;
         }
+
+        /* カード（ボタン）のスタイル */
         .card {
-            background: var(--card-bg);
+            background-color: #1e1e1e;
             border-radius: 16px;
-            padding: 20px 10px;
-            text-decoration: none;
-            color: white;
+            padding: 24px 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
-            border: 1px solid #333;
+            text-decoration: none;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.1s ease, background-color 0.2s;
+            -webkit-tap-highlight-color: transparent;
         }
-        /* タップ時のフィードバック */
+
+        /* タップ時の沈み込みアクション */
         .card:active {
             transform: scale(0.95);
-            background: #333;
+            background-color: #2a2a2a;
         }
-        .card img {
-            width: 32px;
-            height: 32px;
-            margin-bottom: 10px;
-            border-radius: 4px;
+
+        /* アイコンエリア：サイズを75pxに固定 */
+        .icon {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 75px;
+            height: 75px;
+            font-size: 36px; /* 絵文字/文字用 */
         }
-        .card span {
-            font-size: 0.75rem;
+
+        .icon img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .label {
+            font-size: 13px;
             font-weight: 500;
             text-align: center;
         }
+
+        /* フッタークレジット：一流企業のような極小・広字間 */
         .footer {
-            margin-top: auto;
-            padding-top: 40px;
-            font-size: 0.7rem;
-            color: var(--sub-text);
+            margin-top: 60px;
+            padding-bottom: 20px;
+            text-align: center;
+            font-size: 9px;
+            color: #444;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
 
-    <h1>Global Travel Authorities</h1>
-    <p class="subtitle">Essential Links for Your Journey</p>
+    <div class="header">
+        <h1>Global Travel Authorities</h1>
+        <p>World Standard Ed. Dashboard</p>
+    </div>
 
+    <div class="section-header">Essential Tools</div>
     <div class="grid">
-        <a href="https://www.google.com/maps" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=maps.google.com" alt="Maps">
-            <span>Maps</span>
+        <a href="https://translate.google.com/" target="_blank" class="card">
+            <div class="icon">G文</div>
+            <div class="label">Translate</div>
         </a>
-        <a href="https://translate.google.com" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=translate.google.com" alt="Translate">
-            <span>Translate</span>
+        <a href="https://weather.com/" target="_blank" class="card">
+            <div class="icon">☀️</div>
+            <div class="label">Weather</div>
         </a>
-
-        <a href="https://www.accuweather.com" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=accuweather.com" alt="Weather">
-            <span>Weather</span>
-        </a>
-        <a href="https://www.xe.com/currencyconverter/" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=xe.com" alt="Currency">
-            <span>Currency</span>
-        </a>
-
-        <a href="https://www.tripadvisor.com" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=tripadvisor.com" alt="Tripadvisor">
-            <span>Tripadvisor</span>
-        </a>
-        <a href="https://www.lonelyplanet.com" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=lonelyplanet.com" alt="Lonely Planet">
-            <span>Lonely Planet</span>
-        </a>
-        <a href="https://www.fodors.com" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=fodors.com" alt="Fodor's">
-            <span>Fodor's</span>
-        </a>
-        <a href="https://www.roughguides.com" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=roughguides.com" alt="Rough Guides">
-            <span>Rough Guides</span>
-        </a>
-
-        <a href="https://japantravel.navitime.com/en/area/jp/route/" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=navitime.co.jp" alt="Transit">
-            <span>Transit</span>
-        </a>
-        <a href="https://www.jnto.go.jp/safety-tips/eng/" class="card">
-            <img src="https://www.google.com/s2/favicons?sz=64&domain=jnto.go.jp" alt="Safety Info">
-            <span>Safety Info</span>
+        <a href="https://www.xe.com/ja/currencyconverter/" target="_blank" class="card">
+            <div class="icon">💱</div>
+            <div class="label">Currency</div>
         </a>
     </div>
 
-    <div class="footer">© SUNCRAFT Traveler's Card Project</div>
+    <div class="section-header">Travel Guides</div>
+    <div class="grid">
+        <a href="https://www.tripadvisor.com/" target="_blank" class="card">
+            <div class="icon">🦉</div>
+            <div class="label">Tripadvisor</div>
+        </a>
+        <a href="https://www.lonelyplanet.com/" target="_blank" class="card">
+            <div class="icon">🌍</div>
+            <div class="label">Lonely Planet</div>
+        </a>
+        <a href="https://www.fodors.com/" target="_blank" class="card">
+            <div class="icon">F</div>
+            <div class="label">Fodor's</div>
+        </a>
+        <a href="https://www.roughguides.com/" target="_blank" class="card">
+            <div class="icon">🏃</div>
+            <div class="label">Rough Guides</div>
+        </a>
+    </div>
+
+    <div class="section-header">Hotels & Stays</div>
+    <div class="grid">
+        <a href="https://www.booking.com/" target="_blank" class="card">
+            <div class="icon">🛏️</div>
+            <div class="label">Booking.com</div>
+        </a>
+        <a href="https://www.expedia.com/" target="_blank" class="card">
+            <div class="icon">✈️</div>
+            <div class="label">Expedia</div>
+        </a>
+    </div>
+
+    <div class="section-header">Restaurants & Dining</div>
+    <div class="grid">
+        <a href="https://guide.michelin.com/" target="_blank" class="card">
+            <div class="icon">⭐</div>
+            <div class="label">Michelin Guide</div>
+        </a>
+        <a href="https://www.yelp.com/" target="_blank" class="card">
+            <div class="icon">🍔</div>
+            <div class="label">Yelp</div>
+        </a>
+    </div>
+
+    <div class="footer">
+        Designed by JACC(Japan Art Craft Company)
+    </div>
 
 </body>
 </html>
